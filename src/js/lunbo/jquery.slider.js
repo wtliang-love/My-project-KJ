@@ -1,7 +1,7 @@
 
-define(['jquery'], function ($) {
-    return {
-        render: function () {
+// define(['jquery'], function ($) {
+//     return {
+//         render: function () {
 
             (function($) {
                 $.fn.extend({
@@ -157,6 +157,6 @@ define(['jquery'], function ($) {
             })($);
 
 
-        }
-    }
-})
+//         }
+//     }
+// })

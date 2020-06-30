@@ -10,7 +10,7 @@ require.config({
 });
 
 require(['slider'], function(slider) {
-    slider.render()
+    // slider.render()
 });
 
 require(['home'], function(home) {
