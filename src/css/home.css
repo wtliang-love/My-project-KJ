@@ -132,6 +132,12 @@
 .nav_wrap ul > li:last-child a:hover {
   color: #767676;
 }
+.banner {
+  position: relative;
+}
+.banner .banner_wrap {
+  position: relative;
+}
 .banner .banner_wrap .banner_pic {
   overflow: hidden;
   position: relative;

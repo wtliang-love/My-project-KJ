@@ -11,7 +11,7 @@ ul,li,ol{
     list-style: none;
 }
 a,u{
-    text-decoration: none;
+    text-decoration: none!important;
 }
 b,strong{
     font-weight: normal;
