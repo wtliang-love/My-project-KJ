@@ -25,21 +25,17 @@ define(['jquery'], function ($) {
                 success: function (response) {
                     var tempType = '';
                     response.forEach(elem => {
-                    
-                        console.log(elem)
                         tempType += 
                         `
                         <div class="col-md-2">
-                            <a href="#"><img src="${baseUrl}${JSON.parse(elem.image)[0].src}" alt=""></a>
+                            <a href="${baseUrl}src/html/product.html?id=${elem.shop_id}"><img src="${baseUrl}${JSON.parse(elem.image)[0].src}" alt=""></a>
                             <h4>${elem.shop_name}</h4>
                             <p>${elem.shop_noun}</p>
                             <span>￥${elem.shop_now_price}</span>
                         </div> 
                     `
-                    console.log(tempType)
-                    
                     });
-                    $('#wang').append(tempType);
+                    $('#dianshi').append(tempType);
                 }
             });
 
