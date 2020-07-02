@@ -17,12 +17,12 @@ define(['jquery'], function ($) {
 
             
 
-
             $.ajax({
                 type: "get",
                 url: `${baseUrl}interface/getall.php`,
                 dataType: "json",
                 success: function (response) {
+                    console.log(response)
                     var tempType = '';
                     response.forEach(elem => {
                         tempType += 
