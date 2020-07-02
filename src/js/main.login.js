@@ -8,7 +8,12 @@ require.config({
 });
 
 
-require(['login'], function(login) {
+require(['jquery','login'], function($,login) {
     login.render();
+
+    $('#submit').on('click',function () {  
+        
+        login.login();
+    })
 });
 

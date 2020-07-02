@@ -15,6 +15,16 @@ define(['jquery'], function ($) {
                 $('.banner_pic').css('left', -0.5 * innerWidth)
             });
 
+            // 登陆后用户名
+            if(localStorage.getItem('userName')){
+                $('.login a').html(`欢迎 ${localStorage.getItem('userName')}`)
+                $('.reg a').html('退出').on('click',function(){
+                    localStorage.setItem('userName','')
+                    location.reload();
+                    return false;
+                })
+            }
+
             
 
             $.ajax({
