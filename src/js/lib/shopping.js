@@ -20,7 +20,7 @@ define(['jquery'], function ($) {
                             let arr = shop.filter(val => val.id == response.shop_id);
                             let tempSrc = `
                             <ul>
-                                <li><input type="checkbox" checked="true"></li>
+                                <li><input type="checkbox" checked="true" value="${response.shop_now_price * arr[0].num}"></li>
                                 <li>
                                     <img src="${baseUrl}${src}" alt="">
                                     <p>
@@ -74,8 +74,11 @@ define(['jquery'], function ($) {
 
         total: function () {
             let total = 0;
-            $.each($('.total'), (i, elem) => {
-                total = total + Number($(elem).html())
+            $.each($(".shop_noun input[checked]"), (i, elem) => {
+                if($(elem).prop('checked')){
+                    total = total + Number($(elem).val())
+                }
+                
             })
             $('#shop_total').html(`￥${total}`);
             
