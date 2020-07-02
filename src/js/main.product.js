@@ -17,4 +17,7 @@ require(['product'], function(product,) {
         })
     });
 
+
+    product.gouwuche();
+
 });

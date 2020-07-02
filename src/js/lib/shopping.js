@@ -3,6 +3,32 @@ let baseUrl = "http://localhost/My-project-KJ/"
 define(['jquery'], function ($) {
     return {
         render: function (callback) {
+
+            $.ajax({
+                type: "get",
+                url: `${baseUrl}interface/getall.php`,
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+                    var tempType = '';
+                    response.forEach(elem => {
+                        tempType += 
+                        `
+                        <div class="col-md-2">
+                            <a href="${baseUrl}src/html/product.html?id=${elem.shop_id}"><img src="${baseUrl}${JSON.parse(elem.image)[0].src}" alt=""></a>
+                            <h4>${elem.shop_name}</h4>
+                            <p>${elem.shop_noun}</p>
+                            <span>￥${elem.shop_now_price}</span>
+                        </div> 
+                    `
+                    });
+                    $('#dianshi').append(tempType);
+                }
+            });
+
+
+
+
             let shop = JSON.parse(localStorage.getItem('shop'));
             if(shop){
                 let idlist = shop.map(elm => elm.id).join();
