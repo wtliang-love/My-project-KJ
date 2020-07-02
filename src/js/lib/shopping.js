@@ -47,6 +47,17 @@ define(['jquery'], function ($) {
                     }
                 });
             }
+
+
+            // 登陆后用户名
+            if(localStorage.getItem('userName')){
+                $('.login a').html(`欢迎 ${localStorage.getItem('userName')}`)
+                $('.reg a').html('退出').on('click',function(){
+                    localStorage.setItem('userName','')
+                    location.reload();
+                    return false;
+                })
+            }
             
         },
         delete: function (idStr) {

@@ -57,7 +57,7 @@ define(['jquery'], function ($) {
                       </div>
                       <div class="shopcar">
                         <a class="btn btn-danger" href="javascript:;">立即购买</a>
-                        <a class="btn btn-warning" id="shopCar">加入购物车</a>
+                        <a class="btn btn-warning" id="shopCar" href="${baseUrl}src/html/shopping.html">加入购物车</a>
                       </div>
                     </div>
                     `
@@ -68,6 +68,17 @@ define(['jquery'], function ($) {
                     callback && callback(response.shop_id,response.shop_now_price)
                 }
             });
+
+
+            // 登陆后用户名
+            if(localStorage.getItem('userName')){
+              $('.reg a:first').html(`欢迎 ${localStorage.getItem('userName')}`)
+              $('.reg a:last').html('退出').on('click',function(){
+                  localStorage.setItem('userName','')
+                  location.reload();
+                  return false;
+              })
+          }
         },
 
 
