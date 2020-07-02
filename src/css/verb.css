@@ -763,3 +763,10 @@
 .help_wrap {
   margin-top: -80px;
 }
+.banner .banner_wrap .login {
+  height: 363px;
+}
+.banner .banner_wrap .login #submit {
+  background-color: #f99e1e;
+  border-color: #f79307;
+}
