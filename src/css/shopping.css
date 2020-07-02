@@ -718,6 +718,10 @@
 }
 .content_wrap .shop_content .shop_noun ul li:nth-child(2) * {
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 325px;
 }
 .content_wrap .shop_content .shop_noun ul li:nth-child(2) img {
   width: 85px;

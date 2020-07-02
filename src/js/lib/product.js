@@ -2,7 +2,7 @@ let baseUrl = "http://localhost/My-project-KJ/"
 
 define(['jquery'], function ($) {
     return {
-        render: function () {
+        render: function (callback) {
             let id = location.search.split('=')[1]
             $.ajax({
                 type: "get",
@@ -57,21 +57,47 @@ define(['jquery'], function ($) {
                       </div>
                       <div class="shopcar">
                         <a class="btn btn-danger" href="javascript:;">立即购买</a>
-                        <a class="btn btn-warning" id="shopCar" href="/shopcar.html">加入购物车</a>
+                        <a class="btn btn-warning" id="shopCar">加入购物车</a>
                       </div>
                     </div>
                     `
 
                     $('#pic-gb').append(tempSrc);
                     $('#product_noun').append(tempNoun)
+
+                    callback && callback(response.shop_id,response.shop_now_price)
                 }
             });
         },
 
 
 
-        addShopCar:function () {
-            
+        addShopCar:function (id,price,num) {
+            let shop = localStorage.getItem('shop');
+
+            let product = {
+                id: id,
+                price: price,
+                num: num
+            }
+
+            if (shop) { // 存在
+                shop = JSON.parse(shop); // 将字符串转成数组
+                
+                if (shop.some(elm => elm.id == id)) {
+                    
+                    shop.forEach(elm => {
+                        elm.id == id ? elm.num = num : null;
+                    });
+                } else {
+                    shop.push(product);
+                }
+            } else {
+                shop = []; // 不存在新建数组
+                shop.push(product); // 放入商品
+            }
+
+            localStorage.setItem('shop',JSON.stringify(shop))
         }
 
     }

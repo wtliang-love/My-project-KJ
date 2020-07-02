@@ -40,6 +40,12 @@ define(['jquery'], function ($) {
             });
 
 
+        },
+
+
+        gouwuche:function(){
+            $('.shopping_car').append(`<a href="${baseUrl}/src/html/shopping.html"><i class="iconfont icon-icon_gouwuche"></i>购物车(${JSON.parse(localStorage.getItem('shop')).length})</a>`) 
+    
         }
     }
 })

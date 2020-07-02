@@ -15,5 +15,7 @@ require(['slider'], function(slider) {
 
 require(['home'], function(home) {
     home.render();
+
+    home.gouwuche();
 });
 

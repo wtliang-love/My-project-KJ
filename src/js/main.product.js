@@ -10,10 +10,11 @@ require.config({
 });
 
 
-require(['product'], function(product) {
+require(['product'], function(product,) {
     product.render(function (id,price,num) {
         $('#shopCar').on('click',function () {
-            product.addShopCar(id,price,num);
+            product.addShopCar(id,price,$('#number').val());
         })
     });
+
 });
