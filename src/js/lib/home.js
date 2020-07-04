@@ -2,7 +2,7 @@ let baseUrl = "http://localhost/My-project-KJ/"
 
 define(['jquery'], function ($) {
     return {
-        render: function () {
+        render: function (callback) {
 
             // 引入轮播图
             $(function () {
@@ -46,8 +46,9 @@ define(['jquery'], function ($) {
                     `
                     });
                     $('#dianshi').append(tempType);
-                }
+                } 
             });
+            callback && callback();
 
 
         },
@@ -57,6 +58,24 @@ define(['jquery'], function ($) {
         gouwuche:function(){
             $('.shopping_car').append(`<a href="${baseUrl}/src/html/shopping.html"><i class="iconfont icon-icon_gouwuche"></i>购物车(${JSON.parse(localStorage.getItem('shop')).length})</a>`) 
     
+        },
+
+
+        // 左侧楼梯特效
+        louti:function(){
+                if($('html,body').scrollTop() > 1240){
+                    $('#noun').css({
+                        "opacity":1,
+                        "transition": '1s'
+                    })
+                }else{
+                    $('#noun').css({
+                        'opacity':0,
+                        "transition": '0s'
+                    })
+                }
+                
+            
         }
     }
 })

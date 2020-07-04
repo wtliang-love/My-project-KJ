@@ -17,6 +17,17 @@ require(['home'], function(home) {
     
     home.render();
 
+    // 购物车数据
     home.gouwuche();
+
+    // 左侧楼梯特效
+    $(window).on('scroll',function(){
+        home.louti();
+    })
+
+    
+    
+
+    
 });
 

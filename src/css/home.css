@@ -589,11 +589,11 @@
   color: white;
 }
 .noun {
-  display: none;
   width: 40px;
   position: fixed;
   top: 100px;
   left: 55px;
+  opacity: 0;
 }
 .noun ul > li {
   border-bottom: 1px solid #fff;
